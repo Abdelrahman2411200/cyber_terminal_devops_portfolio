@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdelrahman Mohamed | DevOps Engineer</title>
+    <meta name="description" content="Portfolio of Abdelrahman Mohamed, DevOps Engineer specializing in Kubernetes, CI/CD, and Cloud Infrastructure.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/src/css/variables.css">
+    <link rel="stylesheet" href="/src/css/base.css">
+    <link rel="stylesheet" href="/src/css/layout.css">
+    <link rel="stylesheet" href="/src/css/components.css">
+    <link rel="stylesheet" href="/src/css/sections.css">
+    <link rel="stylesheet" href="/src/css/animations.css">
+</head>
+<body>
+    <!-- Boot Screen -->
+    <div id="boot-screen" class="boot-screen">
+        <div class="terminal-content"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container container">
+            <a href="#" class="nav-logo">
+                <span class="logo-symbol">&gt;_</span>
+                <span class="logo-text">Abdelrahman</span>
+            </a>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Dynamic background -->
+        <canvas id="particles-bg"></canvas>
+        <div class="scanlines"></div>
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero container">
+            <div class="hero-content">
+                <div class="hero-text reveal">
+                    <span class="hero-subtitle">
+                        <span id="typing-text"></span><span class="cursor"></span>
+                    </span>
+                    <h1 class="hero-title mt-2">
+                        <div class="glitch-text" data-text="DEV">DEV</div>
+                        <div class="text-green">OPS.</div>
+                    </h1>
+                    <p class="hero-description text-muted mb-3">
+                        Hi, I'm <span class="text-bright font-mono">Abdelrahman Mohamed</span>.
+                        <br>
+                        I architect, automate, and orchestrate robust cloud infrastructure.
+                    </p>
+                    <div class="flex gap-2">
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                        <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    </div>
+                </div>
+                
+                <div class="hero-terminal-wrapper reveal">
+                    <div class="terminal-window h-full">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons">
+                                <div class="terminal-btn red"></div>
+                                <div class="terminal-btn yellow"></div>
+                                <div class="terminal-btn green"></div>
+                            </div>
+                            <div class="terminal-title">abdelrahman@devops:~</div>
+                            <div style="width: 44px;"></div>
+                        </div>
+                        <div class="terminal-body" id="terminal-output">
+                            <div class="mb-1"><span class="text-green">abdelrahman@devops</span>:<span class="text-cyan">~</span>$ whoami</div>
+                            <div class="mb-3">
+                                <span class="text-green">Abdelrahman Mohamed</span><br>
+                                Role: DevOps Engineer<br>
+                                Focus: Infrastructure as Code, CI/CD, Containerization, Cloud Architecture.<br>
+                                Passion: Building scalable, resilient, and automated systems.<br>
+                            </div>
+                            <div class="mb-1"><span class="text-green">abdelrahman@devops</span>:<span class="text-cyan">~</span>$ <input type="text" id="terminal-input" class="term-input" autocomplete="off" spellcheck="false" style="background:transparent;border:none;color:var(--cyber-green);font-family:inherit;font-size:inherit;outline:none;width:50%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About & Architecture Visualization -->
+        <section id="about" class="about container">
+            <h2 class="reveal">About <span class="text-green">Me</span></h2>
+            
+            <div class="grid grid-cols-2 reveal">
+                <div class="about-text glass-card">
+                    <h3 class="font-heading text-cyan mb-2">Automate Everything.</h3>
+                    <p class="mb-2 text-muted">
+                        As a DevOps Engineer, I bridge the gap between development and operations. My primary goal is to ensure that software is delivered rapidly, reliably, and securely.
+                    </p>
+                    <p class="text-muted">
+                        I specialize in container orchestration with Kubernetes, building immutable infrastructure with Terraform, and designing automated zero-downtime CI/CD pipelines.
+                    </p>
+                </div>
+                
+                <div class="k8s-anim glass-card flex-col justify-center items-center">
+                    <h3 class="font-mono text-xs mb-2 text-muted">LIVE: K8S CLUSTER METRICS</h3>
+                    
+                    <div class="k8s-diagram" style="position:relative; width:100%; height:150px; display:flex; justify-content:space-around; align-items:center;">
+                        <!-- Master Node -->
+                        <div class="k8s-node master" style="border: 2px solid var(--cyber-cyan); padding: 10px; border-radius: 8px; text-align:center;">
+                            <div class="text-cyan text-xs mb-1">Control Plane</div>
+                            <div class="flex gap-1 justify-center">
+                                <span style="background:var(--cyber-cyan); width:15px; height:15px; border-radius:3px;"></span>
+                                <span style="background:var(--cyber-cyan); width:15px; height:15px; border-radius:3px;"></span>
+                            </div>
+                        </div>
+                        
+                        <!-- Flow Line -->
+                        <div class="data-flow-line" style="width: 50px;"></div>
+                        
+                        <!-- Worker Node -->
+                        <div class="k8s-node worker" style="border: 2px solid var(--cyber-green); padding: 10px; border-radius: 8px; text-align:center;">
+                            <div class="text-green text-xs mb-1">Worker Node</div>
+                            <div class="grid grid-cols-2 gap-1 justify-center">
+                                <span class="k8s-pod" style="background:var(--cyber-green); width:15px; height:15px; border-radius:50%;"></span>
+                                <span class="k8s-pod" style="background:var(--cyber-green); width:15px; height:15px; border-radius:50%;"></span>
+                                <span class="k8s-pod" style="background:var(--cyber-green); width:15px; height:15px; border-radius:50%;"></span>
+                                <span class="k8s-pod" style="background:var(--cyber-green); width:15px; height:15px; border-radius:50%;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="k8s-logs" class="font-mono text-xs mt-2" style="width: 100%; height: 60px; max-height: 60px; overflow:hidden; color: var(--cyber-green);">
+                        <!-- Logs generated via JS -->
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills container">
+            <h2 class="reveal"><span class="text-green">Tech</span> Stack</h2>
+            
+            <div class="grid grid-cols-2 gap-4 mt-3">
+                <div class="skills-category reveal">
+                    <h3>Containers & Orchestration</h3>
+                    <div class="skills-grid">
+                        <span class="badge">Docker</span>
+                        <span class="badge">Kubernetes</span>
+                        <span class="badge">Helm</span>
+                        <span class="badge">containerd</span>
+                    </div>
+                </div>
+                
+                <div class="skills-category reveal">
+                    <h3>Infrastructure as Code</h3>
+                    <div class="skills-grid">
+                        <span class="badge">Terraform</span>
+                        <span class="badge">Ansible</span>
+                        <span class="badge">CloudFormation</span>
+                    </div>
+                </div>
+                
+                <div class="skills-category reveal">
+                    <h3>CI/CD Integration</h3>
+                    <div class="skills-grid">
+                        <span class="badge">GitHub Actions</span>
+                        <span class="badge">Jenkins</span>
+                        <span class="badge">GitLab CI</span>
+                        <span class="badge">ArgoCD</span>
+                    </div>
+                </div>
+                
+                <div class="skills-category reveal">
+                    <h3>Monitoring & Cloud</h3>
+                    <div class="skills-grid">
+                        <span class="badge">AWS</span>
+                        <span class="badge">Prometheus</span>
+                        <span class="badge">Grafana</span>
+                        <span class="badge">ELK Stack</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects container">
+            <h2 class="reveal">Featured <span class="text-green">Projects</span></h2>
+            
+            <div class="grid grid-cols-3 reveal mt-3">
+                
+                <!-- Project 1 -->
+                <div class="glass-card project-card">
+                    <div class="project-content">
+                        <h4 class="project-title mb-1">CN Banking System</h4>
+                        <p class="project-desc">Complete Microservices platform architecture. Designed the infrastructure layer for secure inter-service communication and deployed to Kubernetes.</p>
+                        <div class="project-tags">
+                            <span class="badge">Kubernetes</span>
+                            <span class="badge">Microservices</span>
+                            <span class="badge">Kafka</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-card project-card">
+                    <div class="project-content">
+                        <h4 class="project-title mb-1">Automated CI/CD Pipeline Hub</h4>
+                        <p class="project-desc">Robust CI/CD pipeline implementation ensuring automated testing, linting, security scans, and seamless deployments without human intervention.</p>
+                        <div class="project-tags">
+                            <span class="badge">GitHub Actions</span>
+                            <span class="badge">Automation</span>
+                            <span class="badge">Pipeline</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="glass-card project-card">
+                    <div class="project-content">
+                        <h4 class="project-title mb-1">Terraform Infrastructure Engine</h4>
+                        <p class="project-desc">Modular IaC approach provisioning highly available, fault-tolerant infrastructure. Manages networking, compute, and security groups declaratively.</p>
+                        <div class="project-tags">
+                            <span class="badge">Terraform</span>
+                            <span class="badge">AWS</span>
+                            <span class="badge">Infrastructure</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Pipeline Animation Visualization -->
+            <div class="pipeline-container glass-card mt-4 reveal flex flex-col justify-center items-center">
+                <h3 class="font-mono text-xs text-muted mb-3" style="letter-spacing: 2px;">CONTINUOUS DEPLOYMENT PIPELINE</h3>
+                <div class="flex items-center gap-1" style="width: 100%; max-width: 800px; justify-content: space-between;">
+                    
+                    <div class="pipeline-stage flex-col items-center">
+                        <div class="stage-icon" style="width: 30px; height: 30px; border: 1px solid var(--text-muted); border-radius: 50%; display:flex; align-items:center; justify-content:center;"></div>
+                        <span class="font-mono text-xs mt-1 text-muted">Code</span>
+                    </div>
+                    <div class="data-flow-line flex-1"></div>
+                    
+                    <div class="pipeline-stage flex-col items-center">
+                        <div class="stage-icon" style="width: 30px; height: 30px; border: 1px solid var(--text-muted); border-radius: 50%; display:flex; align-items:center; justify-content:center;"></div>
+                        <span class="font-mono text-xs mt-1 text-muted">Build Image</span>
+                    </div>
+                    <div class="data-flow-line flex-1"></div>
+
+                    <div class="pipeline-stage flex-col items-center">
+                        <div class="stage-icon" style="width: 30px; height: 30px; border: 1px solid var(--text-muted); border-radius: 50%; display:flex; align-items:center; justify-content:center;"></div>
+                        <span class="font-mono text-xs mt-1 text-muted">Security Scan</span>
+                    </div>
+                    <div class="data-flow-line flex-1"></div>
+
+                    <div class="pipeline-stage flex-col items-center">
+                        <div class="stage-icon" style="width: 30px; height: 30px; border: 1px solid var(--text-muted); border-radius: 50%; display:flex; align-items:center; justify-content:center;"></div>
+                        <span class="font-mono text-xs mt-1 text-muted">Deploy K8s</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience container">
+            <h2 class="reveal"><span class="text-green">Work</span> Experience</h2>
+            
+            <div class="timeline mt-3">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card">
+                        <div class="timeline-date">Current</div>
+                        <h3 class="timeline-title">DevOps Engineer</h3>
+                        <div class="timeline-company text-green">Freelance / Contract</div>
+                        <p class="text-muted">
+                            Architecting cloud solutions, establishing CI/CD pipelines, containerizing legacy applications with Docker, and migrating orchestrations to Kubernetes. Reduced deployment times significantly using Terraform.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card">
+                        <div class="timeline-date">Previous Role</div>
+                        <h3 class="timeline-title">Systems & Cloud Administrator</h3>
+                        <div class="timeline-company text-green">Tech Client Hub</div>
+                        <p class="text-muted">
+                            Managed server infrastructures, optimized databases, and ensured 99.9% uptime. Scripted massive automation processes in Bash and Python to reduce manual operational overhead.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact container" style="min-height: 80vh;">
+            <div class="grid grid-cols-2 gap-4 items-center">
+                <div class="reveal">
+                    <h2>Init <span class="text-green">Connection</span></h2>
+                    <p class="text-muted mb-3">
+                        Always open to discussing infrastructure architecture, cloud automation, or potential collaborations. Drop a payload in the form or connect via secure channels.
+                    </p>
+                    
+                    <div class="social-links">
+                        <a href="https://github.com/Abdelrahman2411200" target="_blank" class="social-link font-mono">>_ GitHub</a>
+                        <a href="https://www.linkedin.com/in/abdelrahman-mohamed-657b2b315?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" class="social-link font-mono">>_ LinkedIn</a>
+                        <a href="mailto:abdulrahmanmohamed256@gmail.com" class="social-link font-mono">>_ Email</a>
+                    </div>
+                </div>
+                
+                <div class="glass-card reveal">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">ID_NAME</label>
+                            <input type="text" id="name" class="form-input" placeholder="root">
+                        </div>
+                        <div class="form-group mt-1">
+                            <label for="email">CONTACT_URI</label>
+                            <input type="email" id="email" class="form-input" placeholder="user@domain.com">
+                        </div>
+                        <div class="form-group mt-1 mb-2">
+                            <label for="message">PAYLOAD</label>
+                            <textarea id="message" class="form-textarea" placeholder="Enter message payload..."></textarea>
+                        </div>
+                        <button type="button" class="btn btn-primary" style="width: 100%;">Execute Transmit</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <span class="sys-status">System Status: <span class="status-indicator"></span> Online</span>
+            </div>
+            <div class="footer-copyright">
+                &copy; <span id="year"></span> Abdelrahman Mohamed. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

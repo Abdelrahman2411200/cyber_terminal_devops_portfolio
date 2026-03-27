@@ -1,0 +1,139 @@
+/* src/css/animations.css */
+
+/* Typing Cursor Blink */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1.2em;
+  background-color: var(--cyber-green);
+  animation: blink 1s step-end infinite;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 140, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 255, 140, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 140, 0); }
+}
+
+/* Glitch Effect */
+.glitch-text {
+  position: relative;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-dark);
+}
+
+.glitch-text::before {
+  left: 2px;
+  text-shadow: -1px 0 var(--cyber-magenta);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+  left: -2px;
+  text-shadow: -1px 0 var(--cyber-cyan);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% { clip: rect(98px, 9999px, 54px, 0); }
+  5% { clip: rect(6px, 9999px, 83px, 0); }
+  10% { clip: rect(21px, 9999px, 20px, 0); }
+  15% { clip: rect(100px, 9999px, 12px, 0); }
+  20% { clip: rect(15px, 9999px, 58px, 0); }
+  25% { clip: rect(31px, 9999px, 7px, 0); }
+  30% { clip: rect(2px, 9999px, 21px, 0); }
+  35% { clip: rect(42px, 9999px, 71px, 0); }
+  40% { clip: rect(31px, 9999px, 48px, 0); }
+  45% { clip: rect(74px, 9999px, 46px, 0); }
+  50% { clip: rect(22px, 9999px, 99px, 0); }
+  55% { clip: rect(81px, 9999px, 60px, 0); }
+  60% { clip: rect(41px, 9999px, 10px, 0); }
+  65% { clip: rect(51px, 9999px, 2px, 0); }
+  70% { clip: rect(20px, 9999px, 19px, 0); }
+  75% { clip: rect(69px, 9999px, 75px, 0); }
+  80% { clip: rect(1px, 9999px, 63px, 0); }
+  85% { clip: rect(49px, 9999px, 3px, 0); }
+  90% { clip: rect(73px, 9999px, 13px, 0); }
+  95% { clip: rect(22px, 9999px, 34px, 0); }
+  100% { clip: rect(22px, 9999px, 89px, 0); }
+}
+
+@keyframes glitch-anim2 {
+  0% { clip: rect(83px, 9999px, 76px, 0); }
+  5% { clip: rect(14px, 9999px, 4px, 0); }
+  10% { clip: rect(53px, 9999px, 50px, 0); }
+  15% { clip: rect(83px, 9999px, 9px, 0); }
+  20% { clip: rect(12px, 9999px, 73px, 0); }
+  25% { clip: rect(34px, 9999px, 75px, 0); }
+  30% { clip: rect(10px, 9999px, 84px, 0); }
+  35% { clip: rect(98px, 9999px, 61px, 0); }
+  40% { clip: rect(81px, 9999px, 63px, 0); }
+  45% { clip: rect(75px, 9999px, 34px, 0); }
+  50% { clip: rect(56px, 9999px, 56px, 0); }
+  55% { clip: rect(91px, 9999px, 60px, 0); }
+  60% { clip: rect(54px, 9999px, 81px, 0); }
+  65% { clip: rect(19px, 9999px, 91px, 0); }
+  70% { clip: rect(76px, 9999px, 87px, 0); }
+  75% { clip: rect(92px, 9999px, 20px, 0); }
+  80% { clip: rect(67px, 9999px, 31px, 0); }
+  85% { clip: rect(83px, 9999px, 91px, 0); }
+  90% { clip: rect(3px, 9999px, 77px, 0); }
+  95% { clip: rect(82px, 9999px, 5px, 0); }
+  100% { clip: rect(4px, 9999px, 59px, 0); }
+}
+
+/* Float Animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.floating {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Custom Architecture Flow / Pipeline Animations */
+@keyframes pipeline-flow {
+  0% { transform: translateX(-100%); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+
+.data-flow-line {
+  height: 2px;
+  background: var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.data-flow-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--cyber-cyan), transparent);
+  animation: pipeline-flow 2s linear infinite;
+}

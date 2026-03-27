@@ -1,0 +1,51 @@
+/* src/css/variables.css */
+:root {
+  /* Core Colors */
+  --cyber-green: #00FF8C;
+  --cyber-cyan: #00D9FF;
+  --cyber-magenta: #FF0080;
+  
+  /* Backgrounds */
+  --bg-dark: #0a0a0f;
+  --bg-darker: #050508;
+  --bg-card: rgba(10, 10, 15, 0.7);
+  --bg-terminal: #0d1117;
+  
+  /* Text */
+  --text-primary: #e0e0e0;
+  --text-muted: #6b7280;
+  --text-bright: #ffffff;
+  
+  /* UI Elements */
+  --border-color: rgba(0, 255, 140, 0.2);
+  --glass-border: rgba(255, 255, 255, 0.05);
+  
+  /* Typography */
+  --font-heading: 'Orbitron', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Effects/Shadows */
+  --glow-green: 0 0 10px rgba(0, 255, 140, 0.5), 0 0 20px rgba(0, 255, 140, 0.3);
+  --glow-cyan: 0 0 10px rgba(0, 217, 255, 0.5), 0 0 20px rgba(0, 217, 255, 0.3);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Layout Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
+  
+  /* Z-indexes */
+  --z-background: -1;
+  --z-normal: 1;
+  --z-overlay: 10;
+  --z-nav: 100;
+  --z-boot: 9999;
+}
