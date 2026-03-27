@@ -191,9 +191,17 @@ section {
     left: 0;
   }
   
-  .grid-cols-2 {
+  .grid-cols-2, .grid-cols-3, .grid-cols-4 {
     grid-template-columns: 1fr;
   }
+  
+  section {
+    padding: var(--spacing-lg) 0;
+    min-height: auto;
+  }
+  
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.8rem; }
   
   .footer-content {
     flex-direction: column;
