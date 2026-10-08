@@ -97,7 +97,7 @@ export const portfolioContent: PortfolioData = {
     email: "abdulrahmanmohamed256@gmail.com",
     github: "https://github.com/Abdelrahman2411200",
     linkedin: "https://www.linkedin.com/in/abdelrahman-mohamed-657b2b315",
-    cvPath: "/Abdelrahman_CV.pdf",
+    cvPath: `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/Abdelrahman_CV.pdf`,
     education: {
       degree: "B.Eng. in Computer Engineering",
       institution: "Modern Academy for Engineering and Technology",
