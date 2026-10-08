@@ -3,7 +3,6 @@
 import React, { useState } from 'react';
 import { portfolioContent } from '@/data/content';
 import { 
-  Terminal, 
   Layers, 
   Server, 
   Activity, 
@@ -17,34 +16,23 @@ import {
   Info
 } from 'lucide-react';
 
-const layerColors: Record<string, { badge: string; border: string; glow: string }> = {
+const layerColors: Record<string, { badge: string; border: string }> = {
   Gateway: {
-    badge: 'bg-sky-500/10 text-sky-400 border-sky-500/30',
-    border: 'border-sky-500/40 hover:border-sky-400',
-    glow: 'rgba(56, 189, 248, 0.15)',
+    badge: 'bg-[#FCA311]/15 text-[#FCA311] border-[#FCA311]/30',
+    border: 'border-[#FCA311]/50 hover:border-[#FCA311]',
   },
   'Core Microservices': {
-    badge: 'bg-cyan-500/10 text-cyan-400 border-cyan-500/30',
-    border: 'border-cyan-500/40 hover:border-cyan-400',
-    glow: 'rgba(6, 182, 212, 0.15)',
+    badge: 'bg-white/10 text-white border-white/20',
+    border: 'border-slate-700 hover:border-[#FCA311]',
   },
   'Event Bus & Storage': {
-    badge: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30',
-    border: 'border-emerald-500/40 hover:border-emerald-400',
-    glow: 'rgba(16, 185, 129, 0.15)',
+    badge: 'bg-[#FCA311]/20 text-[#FCA311] border-[#FCA311]/40',
+    border: 'border-[#FCA311]/40 hover:border-[#FCA311]',
   },
   Observability: {
-    badge: 'bg-amber-500/10 text-amber-400 border-amber-500/30',
-    border: 'border-amber-500/40 hover:border-amber-400',
-    glow: 'rgba(245, 158, 11, 0.15)',
+    badge: 'bg-[#1C2D5A] text-[#E5E5E5] border-slate-700',
+    border: 'border-slate-700 hover:border-[#FCA311]',
   },
-};
-
-const layerIcons: Record<string, React.ReactNode> = {
-  Gateway: <ShieldCheck className="w-4 h-4 text-sky-400" />,
-  'Core Microservices': <Server className="w-4 h-4 text-cyan-400" />,
-  'Event Bus & Storage': <Database className="w-4 h-4 text-emerald-400" />,
-  Observability: <Activity className="w-4 h-4 text-amber-400" />,
 };
 
 export function ArchitectureShowcase() {
@@ -54,23 +42,23 @@ export function ArchitectureShowcase() {
   const selectedNode = architectureShowcase.nodes.find((n) => n.id === selectedNodeId) || architectureShowcase.nodes[0];
 
   return (
-    <section id="architecture" className="py-20 relative bg-slate-950 text-slate-100 overflow-hidden">
+    <section id="architecture" className="py-20 relative bg-black text-white overflow-hidden">
       {/* Ambient background glows */}
-      <div className="absolute top-1/3 left-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 left-10 w-96 h-96 bg-[#FCA311]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#14213D]/40 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col items-center mb-14 text-center">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 font-mono text-xs mb-3 border border-cyan-500/30">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FCA311]/15 text-[#FCA311] font-mono text-xs mb-3 border border-[#FCA311]/30">
             <Layers className="w-3.5 h-3.5" />
             <span>04 // SYSTEM ARCHITECTURE DEEP DIVE</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
             {architectureShowcase.title}
           </h2>
-          <p className="mt-3 text-slate-400 max-w-2xl text-sm sm:text-base">
+          <p className="mt-3 text-[#E5E5E5] max-w-2xl text-sm sm:text-base">
             {architectureShowcase.subtitle}. Click any system node below to inspect transactional guarantees, distributed saga flows, and observability collectors.
           </p>
         </div>
@@ -80,9 +68,9 @@ export function ArchitectureShowcase() {
           
           {/* Visual Architecture Map (7 cols) */}
           <div className="lg:col-span-7 space-y-4">
-            <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 shadow-2xl backdrop-blur-md">
-              <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-800 text-xs font-mono text-slate-400">
-                <span className="flex items-center gap-1.5 text-cyan-400">
+            <div className="p-6 rounded-2xl bg-[#14213D]/80 border border-[#14213D] shadow-2xl backdrop-blur-md">
+              <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-700 text-xs font-mono text-[#E5E5E5]">
+                <span className="flex items-center gap-1.5 text-[#FCA311]">
                   <Radio className="w-3.5 h-3.5 animate-pulse" />
                   <span>Interactive Topology Map</span>
                 </span>
@@ -94,8 +82,8 @@ export function ArchitectureShowcase() {
                 
                 {/* 1. Gateway Layer */}
                 <div>
-                  <div className="text-[11px] font-mono text-slate-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-sky-400" />
+                  <div className="text-[11px] font-mono text-[#E5E5E5] uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#FCA311]" />
                     <span>Edge / Gateway Layer</span>
                   </div>
                   <div className="grid grid-cols-1 gap-3">
@@ -109,21 +97,21 @@ export function ArchitectureShowcase() {
                             onClick={() => setSelectedNodeId(node.id)}
                             className={`w-full p-3.5 rounded-xl text-left transition-all duration-200 border flex items-center justify-between ${
                               isSelected
-                                ? 'bg-sky-500/20 border-sky-400 ring-1 ring-sky-400/50 shadow-lg shadow-sky-500/10'
-                                : 'bg-slate-850 bg-slate-900/50 border-slate-800 hover:border-slate-700 hover:bg-slate-800/60'
+                                ? 'bg-[#FCA311]/20 border-[#FCA311] ring-1 ring-[#FCA311]/60 shadow-lg shadow-[#FCA311]/15'
+                                : 'bg-[#0B132B]/80 border-slate-700/80 hover:border-slate-500 hover:bg-[#1C2D5A]'
                             }`}
                             id={`arch-node-${node.id}`}
                           >
                             <div className="flex items-center gap-3">
-                              <div className="p-2 rounded-lg bg-sky-500/10 text-sky-400">
+                              <div className="p-2 rounded-lg bg-[#FCA311]/15 text-[#FCA311]">
                                 <ShieldCheck className="w-4 h-4" />
                               </div>
                               <div>
                                 <div className="text-sm font-semibold text-white">{node.name}</div>
-                                <div className="text-xs font-mono text-slate-400">{node.tech}</div>
+                                <div className="text-xs font-mono text-[#E5E5E5]">{node.tech}</div>
                               </div>
                             </div>
-                            <ArrowRight className={`w-4 h-4 transition-transform ${isSelected ? 'text-sky-400 translate-x-1' : 'text-slate-600'}`} />
+                            <ArrowRight className={`w-4 h-4 transition-transform ${isSelected ? 'text-[#FCA311] translate-x-1' : 'text-slate-500'}`} />
                           </button>
                         );
                       })}
@@ -132,8 +120,8 @@ export function ArchitectureShowcase() {
 
                 {/* 2. Core Microservices Layer */}
                 <div>
-                  <div className="text-[11px] font-mono text-slate-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                    <Server className="w-3.5 h-3.5 text-cyan-400" />
+                  <div className="text-[11px] font-mono text-[#E5E5E5] uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                    <Server className="w-3.5 h-3.5 text-[#FCA311]" />
                     <span>Domain Microservices (Decoupled)</span>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -147,21 +135,21 @@ export function ArchitectureShowcase() {
                             onClick={() => setSelectedNodeId(node.id)}
                             className={`w-full p-3.5 rounded-xl text-left transition-all duration-200 border flex items-center justify-between ${
                               isSelected
-                                ? 'bg-cyan-500/20 border-cyan-400 ring-1 ring-cyan-400/50 shadow-lg shadow-cyan-500/10'
-                                : 'bg-slate-900/50 border-slate-800 hover:border-slate-700 hover:bg-slate-800/60'
+                                ? 'bg-[#FCA311]/20 border-[#FCA311] ring-1 ring-[#FCA311]/60 shadow-lg shadow-[#FCA311]/15'
+                                : 'bg-[#0B132B]/80 border-slate-700/80 hover:border-slate-500 hover:bg-[#1C2D5A]'
                             }`}
                             id={`arch-node-${node.id}`}
                           >
                             <div className="flex items-center gap-2.5">
-                              <div className="p-2 rounded-lg bg-cyan-500/10 text-cyan-400">
+                              <div className="p-2 rounded-lg bg-[#FCA311]/15 text-[#FCA311]">
                                 <Server className="w-4 h-4" />
                               </div>
                               <div>
                                 <div className="text-xs font-semibold text-white">{node.name}</div>
-                                <div className="text-[10px] font-mono text-slate-400 truncate max-w-[140px]">{node.tech}</div>
+                                <div className="text-[10px] font-mono text-[#E5E5E5] truncate max-w-[140px]">{node.tech}</div>
                               </div>
                             </div>
-                            <ArrowRight className={`w-3.5 h-3.5 transition-transform ${isSelected ? 'text-cyan-400 translate-x-0.5' : 'text-slate-600'}`} />
+                            <ArrowRight className={`w-3.5 h-3.5 transition-transform ${isSelected ? 'text-[#FCA311] translate-x-0.5' : 'text-slate-500'}`} />
                           </button>
                         );
                       })}
@@ -170,8 +158,8 @@ export function ArchitectureShowcase() {
 
                 {/* 3. Event Bus & Storage Layer */}
                 <div>
-                  <div className="text-[11px] font-mono text-slate-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                    <Database className="w-3.5 h-3.5 text-emerald-400" />
+                  <div className="text-[11px] font-mono text-[#E5E5E5] uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                    <Database className="w-3.5 h-3.5 text-[#FCA311]" />
                     <span>Event Streaming & Transactional Persistence</span>
                   </div>
                   <div className="grid grid-cols-1 gap-3">
@@ -185,21 +173,21 @@ export function ArchitectureShowcase() {
                             onClick={() => setSelectedNodeId(node.id)}
                             className={`w-full p-3.5 rounded-xl text-left transition-all duration-200 border flex items-center justify-between ${
                               isSelected
-                                ? 'bg-emerald-500/20 border-emerald-400 ring-1 ring-emerald-400/50 shadow-lg shadow-emerald-500/10'
-                                : 'bg-slate-900/50 border-slate-800 hover:border-slate-700 hover:bg-slate-800/60'
+                                ? 'bg-[#FCA311]/20 border-[#FCA311] ring-1 ring-[#FCA311]/60 shadow-lg shadow-[#FCA311]/15'
+                                : 'bg-[#0B132B]/80 border-slate-700/80 hover:border-slate-500 hover:bg-[#1C2D5A]'
                             }`}
                             id={`arch-node-${node.id}`}
                           >
                             <div className="flex items-center gap-3">
-                              <div className="p-2 rounded-lg bg-emerald-500/10 text-emerald-400">
+                              <div className="p-2 rounded-lg bg-[#FCA311]/15 text-[#FCA311]">
                                 <Database className="w-4 h-4" />
                               </div>
                               <div>
                                 <div className="text-sm font-semibold text-white">{node.name}</div>
-                                <div className="text-xs font-mono text-slate-400">{node.tech}</div>
+                                <div className="text-xs font-mono text-[#E5E5E5]">{node.tech}</div>
                               </div>
                             </div>
-                            <ArrowRight className={`w-4 h-4 transition-transform ${isSelected ? 'text-emerald-400 translate-x-1' : 'text-slate-600'}`} />
+                            <ArrowRight className={`w-4 h-4 transition-transform ${isSelected ? 'text-[#FCA311] translate-x-1' : 'text-slate-500'}`} />
                           </button>
                         );
                       })}
@@ -208,8 +196,8 @@ export function ArchitectureShowcase() {
 
                 {/* 4. Observability Layer */}
                 <div>
-                  <div className="text-[11px] font-mono text-slate-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                    <Activity className="w-3.5 h-3.5 text-amber-400" />
+                  <div className="text-[11px] font-mono text-[#E5E5E5] uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                    <Activity className="w-3.5 h-3.5 text-[#FCA311]" />
                     <span>Telemetry & Observability Stack</span>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -223,21 +211,21 @@ export function ArchitectureShowcase() {
                             onClick={() => setSelectedNodeId(node.id)}
                             className={`w-full p-3.5 rounded-xl text-left transition-all duration-200 border flex items-center justify-between ${
                               isSelected
-                                ? 'bg-amber-500/20 border-amber-400 ring-1 ring-amber-400/50 shadow-lg shadow-amber-500/10'
-                                : 'bg-slate-900/50 border-slate-800 hover:border-slate-700 hover:bg-slate-800/60'
+                                ? 'bg-[#FCA311]/20 border-[#FCA311] ring-1 ring-[#FCA311]/60 shadow-lg shadow-[#FCA311]/15'
+                                : 'bg-[#0B132B]/80 border-slate-700/80 hover:border-slate-500 hover:bg-[#1C2D5A]'
                             }`}
                             id={`arch-node-${node.id}`}
                           >
                             <div className="flex items-center gap-2.5">
-                              <div className="p-2 rounded-lg bg-amber-500/10 text-amber-400">
+                              <div className="p-2 rounded-lg bg-[#FCA311]/15 text-[#FCA311]">
                                 <Activity className="w-4 h-4" />
                               </div>
                               <div>
                                 <div className="text-xs font-semibold text-white">{node.name}</div>
-                                <div className="text-[10px] font-mono text-slate-400 truncate max-w-[140px]">{node.tech}</div>
+                                <div className="text-[10px] font-mono text-[#E5E5E5] truncate max-w-[140px]">{node.tech}</div>
                               </div>
                             </div>
-                            <ArrowRight className={`w-3.5 h-3.5 transition-transform ${isSelected ? 'text-amber-400 translate-x-0.5' : 'text-slate-600'}`} />
+                            <ArrowRight className={`w-3.5 h-3.5 transition-transform ${isSelected ? 'text-[#FCA311] translate-x-0.5' : 'text-slate-500'}`} />
                           </button>
                         );
                       })}
@@ -250,14 +238,14 @@ export function ArchitectureShowcase() {
 
           {/* Detailed Inspector Panel (5 cols) */}
           <div className="lg:col-span-5 sticky top-24">
-            <div className="p-6 sm:p-7 rounded-2xl bg-slate-900/90 border border-slate-800 shadow-2xl backdrop-blur-md">
+            <div className="p-6 sm:p-7 rounded-2xl bg-[#14213D] border border-[#FCA311]/40 shadow-2xl backdrop-blur-md">
               
               {/* Header Badge */}
               <div className="flex items-center justify-between mb-4">
                 <span className={`px-2.5 py-1 rounded-md text-xs font-mono font-semibold border ${layerColors[selectedNode.layer].badge}`}>
                   {selectedNode.layer}
                 </span>
-                <span className="text-xs font-mono text-slate-500">
+                <span className="text-xs font-mono text-[#E5E5E5]">
                   Node: #{selectedNode.id}
                 </span>
               </div>
@@ -268,33 +256,33 @@ export function ArchitectureShowcase() {
               </h3>
 
               {/* Technology */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-800 text-xs font-mono text-cyan-300 mb-5">
-                <Cpu className="w-3.5 h-3.5 text-cyan-400" />
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#0B132B] text-xs font-mono text-[#FCA311] mb-5 border border-[#FCA311]/20">
+                <Cpu className="w-3.5 h-3.5 text-[#FCA311]" />
                 <span>{selectedNode.tech}</span>
               </div>
 
               {/* Description */}
-              <p className="text-sm text-slate-300 leading-relaxed mb-6">
+              <p className="text-sm text-[#E5E5E5] leading-relaxed mb-6">
                 {selectedNode.description}
               </p>
 
               {/* Architectural Highlights / Guarantees */}
-              <div className="space-y-3 pt-5 border-t border-slate-800">
-                <div className="text-xs font-mono text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                  <Zap className="w-3.5 h-3.5 text-amber-400" />
+              <div className="space-y-3 pt-5 border-t border-slate-700">
+                <div className="text-xs font-mono text-[#FCA311] uppercase tracking-wider flex items-center gap-1.5">
+                  <Zap className="w-3.5 h-3.5 text-[#FCA311]" />
                   <span>Resilience & Design Guarantees</span>
                 </div>
                 {selectedNode.details.map((detail, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-300 leading-relaxed">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <div key={idx} className="flex items-start gap-2.5 text-xs text-[#E5E5E5] leading-relaxed">
+                    <CheckCircle2 className="w-4 h-4 text-[#FCA311] shrink-0 mt-0.5" />
                     <span>{detail}</span>
                   </div>
                 ))}
               </div>
 
               {/* Quick Summary Note */}
-              <div className="mt-6 p-3.5 rounded-xl bg-slate-950/70 border border-slate-800/80 flex items-start gap-2.5 text-xs text-slate-400">
-                <Info className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+              <div className="mt-6 p-3.5 rounded-xl bg-[#0B132B] border border-slate-700/80 flex items-start gap-2.5 text-xs text-[#E5E5E5]">
+                <Info className="w-4 h-4 text-[#FCA311] shrink-0 mt-0.5" />
                 <span>
                   Designed for zero data loss during broker failovers using transactional outbox tables and idempotent consumers.
                 </span>

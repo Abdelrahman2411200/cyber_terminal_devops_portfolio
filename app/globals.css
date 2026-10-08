@@ -4,43 +4,43 @@
 
 @layer base {
   :root {
-    --background: #ffffff;
-    --foreground: #09090b;
-    --card: #ffffff;
-    --card-foreground: #09090b;
-    --popover: #ffffff;
-    --popover-foreground: #09090b;
-    --primary: #0284c7;
-    --primary-foreground: #ffffff;
-    --secondary: #f4f4f5;
-    --secondary-foreground: #18181b;
-    --muted: #f4f4f5;
-    --muted-foreground: #71717a;
-    --accent: #0ea5e9;
-    --accent-foreground: #0f172a;
-    --border: #e4e4e7;
-    --input: #e4e4e7;
-    --ring: #0284c7;
+    --background: #FFFFFF;
+    --foreground: #14213D;
+    --card: #FFFFFF;
+    --card-foreground: #14213D;
+    --popover: #FFFFFF;
+    --popover-foreground: #14213D;
+    --primary: #FCA311;
+    --primary-foreground: #000000;
+    --secondary: #E5E5E5;
+    --secondary-foreground: #14213D;
+    --muted: #E5E5E5;
+    --muted-foreground: #5C677D;
+    --accent: #FCA311;
+    --accent-foreground: #000000;
+    --border: #E5E5E5;
+    --input: #E5E5E5;
+    --ring: #FCA311;
   }
 
   .dark {
-    --background: #090d16;
-    --foreground: #f8fafc;
-    --card: #0f172a;
-    --card-foreground: #f8fafc;
-    --popover: #0f172a;
-    --popover-foreground: #f8fafc;
-    --primary: #38bdf8;
-    --primary-foreground: #082f49;
-    --secondary: #1e293b;
-    --secondary-foreground: #f8fafc;
-    --muted: #1e293b;
-    --muted-foreground: #94a3b8;
-    --accent: #38bdf8;
-    --accent-foreground: #082f49;
-    --border: #1e293b;
-    --input: #1e293b;
-    --ring: #38bdf8;
+    --background: #000000;
+    --foreground: #FFFFFF;
+    --card: #14213D;
+    --card-foreground: #FFFFFF;
+    --popover: #14213D;
+    --popover-foreground: #FFFFFF;
+    --primary: #FCA311;
+    --primary-foreground: #000000;
+    --secondary: #14213D;
+    --secondary-foreground: #FFFFFF;
+    --muted: #14213D;
+    --muted-foreground: #E5E5E5;
+    --accent: #FCA311;
+    --accent-foreground: #000000;
+    --border: #14213D;
+    --input: #14213D;
+    --ring: #FCA311;
   }
 }
 
@@ -67,7 +67,12 @@ body {
   overflow-x: hidden;
 }
 
-/* Custom modern scrollbar */
+::selection {
+  background: #FCA311;
+  color: #000000;
+}
+
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -75,26 +80,26 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(148, 163, 184, 0.25);
+  background: rgba(252, 163, 17, 0.3);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(148, 163, 184, 0.45);
+  background: rgba(252, 163, 17, 0.6);
 }
 
-/* Glassmorphism & Glow styles */
+/* Glassmorphism & Glow styles tailored to palette */
 .glass-panel {
-  background: rgba(15, 23, 42, 0.65);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(20, 33, 61, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(252, 163, 17, 0.15);
 }
 
 .light .glass-panel {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(20, 33, 61, 0.12);
 }
 
 .glow-border {
@@ -106,7 +111,7 @@ body {
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(56, 189, 248, 0.4), rgba(16, 185, 129, 0.2), transparent);
+  background: linear-gradient(135deg, rgba(252, 163, 17, 0.4), rgba(20, 33, 61, 0.4), transparent);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -122,6 +127,6 @@ body {
 
 .light .bg-grid-pattern {
   background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(20, 33, 61, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20, 33, 61, 0.05) 1px, transparent 1px);
 }
