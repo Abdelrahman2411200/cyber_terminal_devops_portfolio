@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://abdelrahman-mohamed.dev/sitemap.xml
