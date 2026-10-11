@@ -87,7 +87,7 @@ export const portfolioContent: PortfolioData = {
       "Distributed Systems Enthusiast"
     ],
     headline: "Building resilient, cloud-native distributed systems from backend microservices to production Kubernetes.",
-    subheadline: "Computer Engineering fresh graduate (2026) specializing in high-throughput Java/Spring Boot & Python/FastAPI microservices, scalable React/TypeScript frontends, and automated CI/CD with Kubernetes, Terraform & Observability.",
+    subheadline: "Specializing in high-throughput Java/Spring Boot & Python/FastAPI microservices, scalable React/TypeScript frontends, and automated CI/CD with Kubernetes, Terraform & Observability.",
     bio: [
       "I am a passionate Software & DevOps Engineer who bridges the gap between software design and production cloud infrastructure. I architect and build enterprise-grade microservices using Java/Spring Boot, Python/FastAPI, and TypeScript, backed by robust transactional patterns (Outbox, Saga, Distributed Ledgers).",
       "On the platform side, I orchestrate resilient cloud environments using Docker, Kubernetes (AWS EKS), Terraform, Kustomize, and end-to-end GitOps/CI/CD pipelines with automated security audits (Trivy, tfsec).",
