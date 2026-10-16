@@ -4,43 +4,43 @@
 
 @layer base {
   :root {
-    --background: #FFFFFF;
-    --foreground: #14213D;
+    --background: #F8FAFC;
+    --foreground: #090D16;
     --card: #FFFFFF;
-    --card-foreground: #14213D;
+    --card-foreground: #090D16;
     --popover: #FFFFFF;
-    --popover-foreground: #14213D;
-    --primary: #FCA311;
-    --primary-foreground: #000000;
-    --secondary: #E5E5E5;
-    --secondary-foreground: #14213D;
-    --muted: #E5E5E5;
-    --muted-foreground: #5C677D;
-    --accent: #FCA311;
-    --accent-foreground: #000000;
-    --border: #E5E5E5;
-    --input: #E5E5E5;
-    --ring: #FCA311;
+    --popover-foreground: #090D16;
+    --primary: #0891B2;
+    --primary-foreground: #FFFFFF;
+    --secondary: #E2E8F0;
+    --secondary-foreground: #0F172A;
+    --muted: #F1F5F9;
+    --muted-foreground: #64748B;
+    --accent: #06B6D4;
+    --accent-foreground: #090D16;
+    --border: #E2E8F0;
+    --input: #E2E8F0;
+    --ring: #0891B2;
   }
 
   .dark {
-    --background: #000000;
-    --foreground: #FFFFFF;
-    --card: #14213D;
-    --card-foreground: #FFFFFF;
-    --popover: #14213D;
-    --popover-foreground: #FFFFFF;
-    --primary: #FCA311;
-    --primary-foreground: #000000;
-    --secondary: #14213D;
-    --secondary-foreground: #FFFFFF;
-    --muted: #14213D;
-    --muted-foreground: #E5E5E5;
-    --accent: #FCA311;
-    --accent-foreground: #000000;
-    --border: #14213D;
-    --input: #14213D;
-    --ring: #FCA311;
+    --background: #090D16;
+    --foreground: #F8FAFC;
+    --card: #0D1527;
+    --card-foreground: #F8FAFC;
+    --popover: #0D1527;
+    --popover-foreground: #F8FAFC;
+    --primary: #00F0FF;
+    --primary-foreground: #090D16;
+    --secondary: #131F37;
+    --secondary-foreground: #F8FAFC;
+    --muted: #131F37;
+    --muted-foreground: #94A3B8;
+    --accent: #00F0FF;
+    --accent-foreground: #090D16;
+    --border: rgba(34, 211, 238, 0.16);
+    --input: rgba(34, 211, 238, 0.16);
+    --ring: #00F0FF;
   }
 }
 
@@ -68,65 +68,144 @@ body {
 }
 
 ::selection {
-  background: #FCA311;
-  color: #000000;
+  background: #00F0FF;
+  color: #090D16;
 }
 
-/* Custom scrollbar */
+/* Custom cyber scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: rgba(9, 13, 22, 0.95);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(252, 163, 17, 0.3);
-  border-radius: 4px;
+  background: rgba(0, 240, 255, 0.25);
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 240, 255, 0.15);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(252, 163, 17, 0.6);
+  background: rgba(0, 240, 255, 0.6);
 }
 
-/* Glassmorphism & Glow styles tailored to palette */
+/* Accessible focus visible outlines */
+:focus-visible {
+  outline: 2px solid #00F0FF;
+  outline-offset: 2px;
+}
+
+/* High-tech Cyber Grid & Dots Backgrounds */
+.cyber-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 240, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
+}
+
+.light .cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(8, 145, 178, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(8, 145, 178, 0.07) 1px, transparent 1px);
+}
+
+.cyber-dots {
+  background-image: radial-gradient(rgba(0, 240, 255, 0.14) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.light .cyber-dots {
+  background-image: radial-gradient(rgba(8, 145, 178, 0.16) 1px, transparent 1px);
+}
+
+/* Radial fade masks for grids so edges dissolve smoothly */
+.mask-radial-faded {
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 50%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 50%, transparent 100%);
+}
+
+/* Marquee infinite ribbon fade masks */
+.marquee-mask {
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+/* Glassmorphism primitives */
 .glass-panel {
-  background: rgba(20, 33, 61, 0.65);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(252, 163, 17, 0.15);
+  background: rgba(13, 21, 39, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 240, 255, 0.14);
 }
 
 .light .glass-panel {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(20, 33, 61, 0.12);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
 }
 
-.glow-border {
-  position: relative;
+.glass-pill {
+  background: rgba(13, 21, 39, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(0, 240, 255, 0.18);
 }
-.glow-border::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, rgba(252, 163, 17, 0.4), rgba(20, 33, 61, 0.4), transparent);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+
+.light .glass-pill {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(203, 213, 225, 0.8);
+}
+
+/* Glowing Border card effect */
+.cyber-card {
+  position: relative;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cyber-card:hover {
+  border-color: rgba(0, 240, 255, 0.45);
+  box-shadow: 0 10px 30px -10px rgba(0, 240, 255, 0.18);
+}
+
+/* Subtle scanline overlay for cyber terminal feel */
+.scanline-overlay {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.22) 50%
+  );
+  background-size: 100% 4px;
   pointer-events: none;
 }
 
-.bg-grid-pattern {
-  background-size: 32px 32px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+/* Smooth data-packet pulse animation along SVG strokes */
+@keyframes dash {
+  to {
+    stroke-dashoffset: -40;
+  }
 }
 
-.light .bg-grid-pattern {
-  background-image: 
-    linear-gradient(to right, rgba(20, 33, 61, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(20, 33, 61, 0.05) 1px, transparent 1px);
+.animate-flow-dash {
+  stroke-dasharray: 6 6;
+  animation: dash 1.4s linear infinite;
+}
+
+@keyframes pulse-packet {
+  0% {
+    r: 2;
+    opacity: 0.4;
+  }
+  50% {
+    r: 4.5;
+    opacity: 1;
+  }
+  100% {
+    r: 2;
+    opacity: 0.4;
+  }
+}
+
+.pulse-node-glow {
+  animation: pulse-packet 2s ease-in-out infinite;
 }

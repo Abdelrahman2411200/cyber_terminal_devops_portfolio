@@ -10,7 +10,7 @@ import { Footer } from '@/components/Footer';
 
 export default function Home() {
   return (
-    <main className="relative flex flex-col min-h-screen">
+    <main id="main-content" className="relative flex flex-col min-h-screen">
       <Navbar />
       <Hero />
       <About />

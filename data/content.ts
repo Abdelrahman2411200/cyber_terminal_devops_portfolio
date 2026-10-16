@@ -168,6 +168,7 @@ export const portfolioContent: PortfolioData = {
       skills: ["JWT & OAuth2", "Network Segmentation", "Firewalls & Access Control", "TLS / mTLS", "Vulnerability Scanning"]
     }
   ],
+  // Dedicated per-repo links - update each repository link individually below:
   featuredProjects: [
     {
       id: "event-management-platform",
@@ -183,7 +184,7 @@ export const portfolioContent: PortfolioData = {
         "Full-stack observability with OpenTelemetry auto-instrumentation, Jaeger distributed tracing, Prometheus metrics, and Loki centralized logs in Grafana."
       ],
       architectureSummary: "Microservices architecture fronted by Spring Cloud Gateway with distributed Redis caching, Kafka asynchronous pub-sub, isolated PostgreSQL databases per service, and unified telemetry collectors.",
-      githubUrl: "https://github.com/Abdelrahman2411200",
+      githubUrl: "https://github.com/Abdelrahman2411200/event-management-platform",
       featured: true
     },
     {
@@ -200,7 +201,7 @@ export const portfolioContent: PortfolioData = {
         "Structured modular RESTful API architecture with comprehensive OpenAPI/Swagger documentation and automated regression tests."
       ],
       architectureSummary: "FastAPI REST API orchestrating async workers over a persistent task lease table, streaming structured plan generations to a responsive Vite/React interface.",
-      githubUrl: "https://github.com/Abdelrahman2411200",
+      githubUrl: "https://github.com/Abdelrahman2411200/ai-project-manager-agent",
       featured: true
     },
     {
@@ -217,7 +218,7 @@ export const portfolioContent: PortfolioData = {
         "Applied Resilience4j circuit breakers, bulkheads, and rate limiters to protect critical booking endpoints from traffic spikes."
       ],
       architectureSummary: "Spring Boot 3.3 monolith designed with clean domain-driven module boundaries, Redis acceleration, WebSocket event gateway, and responsive React/Tailwind frontend.",
-      githubUrl: "https://github.com/Abdelrahman2411200",
+      githubUrl: "https://github.com/Abdelrahman2411200/twsela-courier-platform",
       featured: true
     },
     {
@@ -234,7 +235,7 @@ export const portfolioContent: PortfolioData = {
         "Integrated automated end-to-end integration audits and frontend smoke testing with Playwright and Vitest prior to rollout."
       ],
       architectureSummary: "GitOps-driven Kubernetes architecture hosted on AWS EKS with Terraform-managed VPCs, automated security gates, and container security scanners.",
-      githubUrl: "https://github.com/Abdelrahman2411200",
+      githubUrl: "https://github.com/Abdelrahman2411200/aircraft-management-mro-ai",
       featured: true
     },
     {
@@ -251,7 +252,7 @@ export const portfolioContent: PortfolioData = {
         "Automated deployment on Kubernetes with Horizontal Pod Autoscalers (HPA) and rolling zero-downtime updates."
       ],
       architectureSummary: "Decoupled TypeScript services communicating via Apache Kafka event streams with dedicated PostgreSQL stores and Kubernetes orchestration.",
-      githubUrl: "https://github.com/Abdelrahman2411200",
+      githubUrl: "https://github.com/Abdelrahman2411200/cn-banking-transaction-system",
       featured: false
     },
     {
@@ -268,7 +269,7 @@ export const portfolioContent: PortfolioData = {
         "Implemented distributed caching with Redis to achieve 70% latency reduction on high-traffic product catalog queries."
       ],
       architectureSummary: "Polyglot microservices deployed in segregated Kubernetes namespaces behind Nginx with AWS EKS auto-scaling and Prometheus monitoring.",
-      githubUrl: "https://github.com/Abdelrahman2411200",
+      githubUrl: "https://github.com/Abdelrahman2411200/ms-cloud-native-platform",
       featured: false
     },
     {
@@ -285,7 +286,7 @@ export const portfolioContent: PortfolioData = {
         "Set up GitHub Actions CI/CD pipelines enforcing linting, unit test coverage gates, and automated container health checks."
       ],
       architectureSummary: "NestJS backend and Python ML forecasting engine coordinated via Docker Compose, backed by PostgreSQL and managed through CI quality gates.",
-      githubUrl: "https://github.com/Abdelrahman2411200",
+      githubUrl: "https://github.com/Abdelrahman2411200/stockpilot",
       featured: false
     }
   ],

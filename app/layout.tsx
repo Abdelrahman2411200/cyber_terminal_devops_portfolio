@@ -18,17 +18,22 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#090d16' },
+    { media: '(prefers-color-scheme: light)', color: '#F8FAFC' },
+    { media: '(prefers-color-scheme: dark)', color: '#090D16' },
   ],
   width: 'device-width',
   initialScale: 1,
 };
 
+const deployedUrl = 'https://abdelrahman2411200.github.io/cyber_terminal_devops_portfolio/';
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://abdelrahman-mohamed.dev'),
-  title: `${portfolioContent.personal.name} | Software Engineer & DevOps Engineer`,
+  metadataBase: new URL(deployedUrl),
+  title: `${portfolioContent.personal.name} | Software & DevOps Engineer`,
   description: portfolioContent.personal.subheadline,
+  alternates: {
+    canonical: deployedUrl,
+  },
   keywords: [
     'Abdelrahman Mohamed',
     'Abdelrahman Mohamed Ahmed',
@@ -49,19 +54,19 @@ export const metadata: Metadata = {
     'TypeScript',
     'Egypt',
   ],
-  authors: [{ name: portfolioContent.personal.name }],
+  authors: [{ name: portfolioContent.personal.name, url: portfolioContent.personal.github }],
   creator: portfolioContent.personal.name,
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://abdelrahman-mohamed.dev',
-    title: `${portfolioContent.personal.name} | Software Engineer & DevOps Engineer`,
+    url: deployedUrl,
+    title: `${portfolioContent.personal.name} | Software & DevOps Engineer`,
     description: portfolioContent.personal.subheadline,
     siteName: `${portfolioContent.personal.name} Portfolio`,
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${portfolioContent.personal.name} | Software Engineer & DevOps Engineer`,
+    title: `${portfolioContent.personal.name} | Software & DevOps Engineer`,
     description: portfolioContent.personal.subheadline,
   },
   robots: {
@@ -80,7 +85,7 @@ export default function RootLayout({
     '@type': 'Person',
     name: portfolioContent.personal.name,
     jobTitle: portfolioContent.personal.title,
-    url: 'https://abdelrahman-mohamed.dev',
+    url: deployedUrl,
     sameAs: [
       portfolioContent.personal.github,
       portfolioContent.personal.linkedin,
@@ -110,7 +115,14 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased bg-background text-foreground transition-colors duration-300 min-h-screen">
+      <body className="font-sans antialiased bg-background text-foreground transition-colors duration-300 min-h-screen selection:bg-cyan-400 selection:text-black">
+        {/* Skip to Main Content Link for WCAG Accessibility */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 px-4 py-2 bg-cyan-400 text-black font-mono text-xs font-bold rounded-lg shadow-lg ring-2 ring-white"
+        >
+          Skip to main content
+        </a>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
