@@ -22,7 +22,7 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
 
-  // Scroll Progress Bar
+  // Scroll Progress Bar with Warm Coral-to-Gold spring
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -55,37 +55,37 @@ export function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           scrolled
-            ? 'bg-[#090D16]/85 dark:bg-[#090D16]/85 backdrop-blur-xl border-b border-cyan-500/15 shadow-xl shadow-black/40'
+            ? 'bg-[#202C39]/90 dark:bg-[#202C39]/90 backdrop-blur-xl border-b border-[#B8B08D]/20 shadow-xl shadow-black/30'
             : 'bg-transparent border-b border-transparent'
         }`}
       >
         {/* Top Scroll Progress Bar */}
         <motion.div
-          className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-cyan-400 via-emerald-400 to-cyan-300 origin-left z-50"
+          className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#F29559] via-[#F2D492] to-[#F29559] origin-left z-50 shadow-sm shadow-[#F29559]/30"
           style={{ scaleX }}
         />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             
-            {/* Logo / Cyber Terminal Brand */}
+            {/* Logo / Terminal Brand */}
             <a
               href="#"
               className="flex items-center gap-2.5 group font-mono text-sm font-semibold tracking-tight"
               id="nav-brand-link"
             >
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyan-500 to-emerald-400 p-[1px] transition-transform group-hover:scale-105 shadow-md shadow-cyan-500/20">
-                <div className="w-full h-full bg-[#0D1527] rounded-[7px] flex items-center justify-center text-cyan-400 group-hover:text-emerald-300 transition-colors">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#F29559] to-[#F2D492] p-[1px] transition-transform group-hover:scale-105 shadow-md shadow-[#F29559]/20">
+                <div className="w-full h-full bg-[#202C39] rounded-[7px] flex items-center justify-center text-[#F29559] group-hover:text-[#F2D492] transition-colors">
                   <Terminal className="w-4 h-4" />
                 </div>
               </div>
-              <span className="font-semibold text-base tracking-tight text-slate-900 dark:text-white">
-                Abdelrahman<span className="text-cyan-400 font-mono">.dev</span>
+              <span className="font-semibold text-base tracking-tight text-slate-900 dark:text-[#F6F4EE]">
+                Abdelrahman<span className="text-[#F29559] font-mono">.dev</span>
               </span>
             </a>
 
-            {/* Desktop Nav Items */}
-            <nav className="hidden md:flex items-center gap-1 bg-slate-200/60 dark:bg-[#0D1527]/85 p-1 rounded-full border border-slate-300/80 dark:border-cyan-500/20 backdrop-blur-md">
+            {/* Desktop Nav Items with Warm Spring Indicator */}
+            <nav className="hidden md:flex items-center gap-1 bg-[#EDE8DC] dark:bg-[#283845]/90 p-1 rounded-full border border-slate-300/80 dark:border-[#B8B08D]/25 backdrop-blur-md">
               {navItems.map((item) => {
                 const isActive = activeSection === item.href.substring(1);
                 return (
@@ -94,14 +94,14 @@ export function Navbar() {
                     href={item.href}
                     className={`relative px-3.5 py-1.5 rounded-full text-xs font-mono font-medium transition-colors duration-200 ${
                       isActive
-                        ? 'text-cyan-950 dark:text-black font-semibold'
-                        : 'text-slate-600 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-white'
+                        ? 'text-[#202C39] font-bold'
+                        : 'text-slate-600 dark:text-[#B8B08D] hover:text-[#202C39] dark:hover:text-[#F6F4EE]'
                     }`}
                   >
                     {isActive && (
                       <motion.div
                         layoutId="activeSectionIndicator"
-                        className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-emerald-400 rounded-full shadow-sm shadow-cyan-500/30"
+                        className="absolute inset-0 bg-gradient-to-r from-[#F29559] to-[#F2D492] rounded-full shadow-sm shadow-[#F29559]/30"
                         transition={{ type: 'spring', stiffness: 350, damping: 30 }}
                       />
                     )}
@@ -111,16 +111,16 @@ export function Navbar() {
               })}
             </nav>
 
-            {/* Actions: Command Palette, CV & Theme Toggle */}
+            {/* Actions: Command Palette, Resume & Theme Toggle */}
             <div className="hidden md:flex items-center gap-2.5">
               {/* Cmd+K trigger */}
               <button
                 onClick={() => setCommandPaletteOpen(true)}
-                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono bg-[#0D1527] text-slate-400 border border-slate-700/80 hover:border-cyan-500/50 hover:text-cyan-300 transition-all duration-200 shadow-sm"
+                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono bg-[#283845] text-[#F2D492] border border-[#B8B08D]/30 hover:border-[#F29559]/60 hover:text-[#F29559] transition-all duration-200 shadow-sm"
                 aria-label="Open command palette"
                 title="Press ⌘K or Ctrl+K"
               >
-                <Command className="w-3.5 h-3.5 text-cyan-400" />
+                <Command className="w-3.5 h-3.5 text-[#F29559]" />
                 <span className="text-[11px]">⌘K</span>
               </button>
 
@@ -128,7 +128,7 @@ export function Navbar() {
               <a
                 href={portfolioContent.personal.cvPath}
                 download="Abdelrahman_Mohamed_CV.pdf"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold font-mono bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 hover:bg-cyan-500/20 hover:border-cyan-400 transition-all duration-200 shadow-sm"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold font-mono bg-[#F29559]/15 text-[#F29559] border border-[#F29559]/40 hover:bg-[#F29559]/25 hover:border-[#F29559] transition-all duration-200 shadow-sm"
                 id="nav-cv-download"
               >
                 <FileDown className="w-3.5 h-3.5" />
@@ -142,7 +142,7 @@ export function Navbar() {
             <div className="flex md:hidden items-center gap-2">
               <button
                 onClick={() => setCommandPaletteOpen(true)}
-                className="p-2 rounded-lg bg-[#0D1527] text-cyan-400 border border-cyan-500/30"
+                className="p-2 rounded-lg bg-[#283845] text-[#F29559] border border-[#B8B08D]/30"
                 aria-label="Open command palette"
               >
                 <Command className="w-4 h-4" />
@@ -150,7 +150,7 @@ export function Navbar() {
               <ThemeToggle />
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-lg bg-slate-200 dark:bg-[#0D1527] text-slate-800 dark:text-slate-200 hover:text-cyan-400 border border-transparent dark:border-cyan-500/20 transition-colors"
+                className="p-2 rounded-lg bg-slate-200 dark:bg-[#283845] text-slate-800 dark:text-[#F6F4EE] hover:text-[#F29559] border border-transparent dark:border-[#B8B08D]/25 transition-colors"
                 aria-label="Toggle navigation menu"
                 id="mobile-menu-toggle"
               >
@@ -162,7 +162,7 @@ export function Navbar() {
 
         {/* Mobile Drawer */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-white/95 dark:bg-[#090D16]/95 border-b border-cyan-500/20 backdrop-blur-2xl px-4 pt-3 pb-6 space-y-2 animate-in slide-in-from-top duration-200">
+          <div className="md:hidden bg-white/95 dark:bg-[#202C39]/95 border-b border-[#B8B08D]/20 backdrop-blur-2xl px-4 pt-3 pb-6 space-y-2 animate-in slide-in-from-top duration-200">
             {navItems.map((item) => {
               const isActive = activeSection === item.href.substring(1);
               return (
@@ -172,8 +172,8 @@ export function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                   className={`block px-4 py-2.5 rounded-xl text-sm font-mono font-medium transition-colors ${
                     isActive
-                      ? 'bg-cyan-500/15 text-cyan-400 font-semibold border border-cyan-500/30'
-                      : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-[#0D1527]'
+                      ? 'bg-[#F29559]/20 text-[#F29559] font-bold border border-[#F29559]/40'
+                      : 'text-slate-700 dark:text-[#B8B08D] hover:bg-slate-100 dark:hover:bg-[#283845]'
                   }`}
                 >
                   {item.label}
@@ -184,7 +184,7 @@ export function Navbar() {
               <a
                 href={portfolioContent.personal.cvPath}
                 download="Abdelrahman_Mohamed_CV.pdf"
-                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold font-mono bg-gradient-to-r from-cyan-400 to-emerald-400 text-black shadow-lg shadow-cyan-500/20"
+                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold font-mono bg-gradient-to-r from-[#F29559] to-[#F2D492] text-[#202C39] shadow-lg shadow-[#F29559]/20"
               >
                 <FileDown className="w-4 h-4" />
                 <span>Download Resume (PDF)</span>

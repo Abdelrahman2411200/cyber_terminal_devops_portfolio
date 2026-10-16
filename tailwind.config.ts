@@ -40,22 +40,18 @@ const config: Config = {
         border: 'var(--border)',
         input: 'var(--input)',
         ring: 'var(--ring)',
-        // Refined Cyber Terminal / DevOps Palette
-        cyber: {
-          base: '#090D16',
-          baseDark: '#05080E',
-          surface: '#0D1527',
-          surfaceElevated: '#131F37',
-          surfaceBorder: 'rgba(34, 211, 238, 0.18)',
-          cyan: '#00F0FF',
-          cyanGlow: 'rgba(0, 240, 255, 0.25)',
-          cyanMuted: 'rgba(0, 240, 255, 0.10)',
-          emerald: '#10B981',
-          emeraldGlow: 'rgba(16, 185, 129, 0.25)',
-          emeraldMuted: 'rgba(16, 185, 129, 0.10)',
-          indigo: '#6366F1',
-          slate: '#94A3B8',
-          slateDark: '#475569',
+
+        // Bespoke Industrial Terminal Palette (https://coolors.co/202c39-283845-b8b08d-f2d492-f29559)
+        terminal: {
+          charcoal: '#202C39',       // Deepest dark canvas
+          charcoalDark: '#17202B',   // Ambient dark backing
+          slate: '#283845',          // Elevated surface & cards
+          slateElevated: '#324555',  // Hover surface
+          sand: '#B8B08D',           // Muted borders, secondary labels
+          sandLight: '#D2CCB4',      // Soft reading text
+          gold: '#F2D492',           // Warm luminous telemetry & highlights
+          coral: '#F29559',          // Primary action accent & active state
+          coralHover: '#F5A775',     // CTA hover state
         },
       },
       fontFamily: {

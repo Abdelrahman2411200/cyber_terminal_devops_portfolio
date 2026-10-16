@@ -18,8 +18,8 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#F8FAFC' },
-    { media: '(prefers-color-scheme: dark)', color: '#090D16' },
+    { media: '(prefers-color-scheme: light)', color: '#F7F5EE' },
+    { media: '(prefers-color-scheme: dark)', color: '#202C39' },
   ],
   width: 'device-width',
   initialScale: 1,
@@ -115,11 +115,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased bg-background text-foreground transition-colors duration-300 min-h-screen selection:bg-cyan-400 selection:text-black">
+      <body className="font-sans antialiased bg-background text-foreground transition-colors duration-300 min-h-screen selection:bg-[#F29559] selection:text-[#202C39]">
         {/* Skip to Main Content Link for WCAG Accessibility */}
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 px-4 py-2 bg-cyan-400 text-black font-mono text-xs font-bold rounded-lg shadow-lg ring-2 ring-white"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 px-4 py-2 bg-[#F29559] text-[#202C39] font-mono text-xs font-bold rounded-lg shadow-lg ring-2 ring-[#F2D492]"
         >
           Skip to main content
         </a>

@@ -14,7 +14,7 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <div className="w-9 h-9 rounded-lg bg-[#0D1527] border border-slate-800" />
+      <div className="w-9 h-9 rounded-lg bg-[#283845] border border-[#B8B08D]/20" />
     );
   }
 
@@ -23,14 +23,14 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(isDark ? 'light' : 'dark')}
-      className="relative p-2 rounded-lg bg-slate-100 dark:bg-[#0D1527] border border-slate-300 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-cyan-400 hover:border-cyan-400/40 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-400/50"
+      className="relative p-2 rounded-lg bg-slate-100 dark:bg-[#283845] border border-slate-300 dark:border-[#B8B08D]/30 text-slate-700 dark:text-[#F6F4EE] hover:text-[#F29559] hover:border-[#F29559]/50 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#F29559]/50"
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       id="theme-toggle-button"
     >
       {isDark ? (
-        <Sun className="w-4 h-4 text-cyan-400 animate-in spin-in-90 duration-200" />
+        <Sun className="w-4 h-4 text-[#F2D492] animate-in spin-in-90 duration-200" />
       ) : (
-        <Moon className="w-4 h-4 text-indigo-500 animate-in spin-in-90 duration-200" />
+        <Moon className="w-4 h-4 text-[#F29559] animate-in spin-in-90 duration-200" />
       )}
     </button>
   );
