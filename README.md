@@ -2,7 +2,7 @@
 
 A modern, high-performance, single-page developer portfolio showcasing cloud-native architectures, distributed microservices (Java/Spring Boot, Python/FastAPI), and DevOps automation (Kubernetes, Terraform, CI/CD, Observability).
 
-Built with **Next.js 14 (App Router)**, **TypeScript**, **Tailwind CSS**, and **Framer Motion**.
+Built with **Next.js 14 (App Router)**, **TypeScript**, and **Tailwind CSS**.
 
 ---
 
@@ -11,7 +11,7 @@ Built with **Next.js 14 (App Router)**, **TypeScript**, **Tailwind CSS**, and **
 - **Single Source of Truth (`data/content.ts`)**: Update all personal info, skills, projects, and architecture details in one typed file.
 - **Interactive System Architecture Showcase**: Interactive topology visualizer of the Event Management Platform highlighting API Gateway, Kafka Transactional Outbox, Saga orchestrator, and OpenTelemetry observability collectors.
 - **Filterable Projects Matrix**: Categorized views (`Backend`, `DevOps`, `Full-Stack`, `AI`) with deep-dive modal inspection.
-- **Dark-First Modern Aesthetics**: JetBrains Mono + Inter typography, glassmorphism, responsive drawer, glowing accents, and smooth Dark/Light mode toggle.
+- **Dark-only design**: Manrope typography, a restrained violet palette, custom project diagrams, and a subtle animated background that respects reduced-motion preferences.
 - **Direct CV Download**: Linked to [Abdelrahman_CV.pdf](file:///e:/Abdelrahman_Mohamed/public/Abdelrahman_CV.pdf) with one-click resume download.
 - **Accessible & SEO Ready**: JSON-LD Structured Data, Open Graph metadata, sitemap, semantic markup, and `prefers-reduced-motion` compliance.
 
@@ -35,6 +35,26 @@ Built with **Next.js 14 (App Router)**, **TypeScript**, **Tailwind CSS**, and **
    npm run build
    ```
    This generates an optimized static export in the `out/` folder.
+
+Development uses `.next-dev/`, production uses `.next/`, and browser tests use `.next-e2e/`. These separate caches keep a production build from replacing JavaScript used by an open localhost preview. Serve the export over HTTP rather than opening `out/index.html` directly.
+
+### Browser regression checks
+
+```bash
+npx playwright install chromium
+npm run test:e2e
+```
+
+The suite checks desktop and mobile navigation, project filters, case studies, search, architecture controls, PDF downloads, copying email (including restricted previews), dark-only rendering, and reduced motion. It also fails on runtime errors or failed Next.js assets.
+
+To use an installed Chrome browser in PowerShell:
+
+```powershell
+$env:PLAYWRIGHT_CHANNEL = 'chrome'
+npm run test:e2e
+```
+
+Set `PORTFOLIO_TEST_URL` to run the same checks against an already running preview or static export.
 
 ---
 

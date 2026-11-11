@@ -1,203 +1,126 @@
-'use client';
+"use client";
+import { useEffect, useState } from "react";
+import { ArrowUpRight, Menu, Search, X } from "lucide-react";
+import { portfolioContent } from "@/data/content";
+import { CommandPalette } from "./CommandPalette";
 
-import React, { useState, useEffect } from 'react';
-import { portfolioContent } from '@/data/content';
-import { ThemeToggle } from './ThemeToggle';
-import { CommandPalette } from './CommandPalette';
-import { Menu, X, FileDown, Terminal, Command } from 'lucide-react';
-import { motion, useScroll, useSpring } from 'framer-motion';
-
-const navItems = [
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Architecture', href: '#architecture' },
-  { label: 'Academic', href: '#academic' },
-  { label: 'Contact', href: '#contact' },
+const links = [
+  { label: "Work", href: "#projects" },
+  { label: "About", href: "#about" },
+  { label: "Toolkit", href: "#skills" },
+  { label: "Contact", href: "#contact" },
 ];
-
 export function Navbar() {
-  const [activeSection, setActiveSection] = useState('about');
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
-
-  // Scroll Progress Bar with Warm Coral-to-Gold spring
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
-
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [paletteOpen, setPaletteOpen] = useState(false);
+  const [active, setActive] = useState("");
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-
-      const sections = navItems.map((item) => item.href.substring(1));
-      const scrollPosition = window.scrollY + 140;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const sectionEl = document.getElementById(sections[i]);
-        if (sectionEl && sectionEl.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i]);
-          break;
-        }
+    const onKey = (event: KeyboardEvent) => {
+      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        setPaletteOpen((open) => !open);
       }
+      if (event.key === "Escape") setMenuOpen(false);
     };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(`#${entry.target.id}`);
+        });
+      },
+      { rootMargin: "-20% 0px -55% 0px" },
+    );
+    [...links, { href: "#hero" }].forEach((link) => {
+      const section = document.querySelector(link.href);
+      if (section) observer.observe(section);
+    });
+    document.addEventListener("keydown", onKey);
+    return () => {
+      observer.disconnect();
+      document.removeEventListener("keydown", onKey);
+    };
   }, []);
-
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          scrolled
-            ? 'bg-[#202C39]/90 dark:bg-[#202C39]/90 backdrop-blur-xl border-b border-[#B8B08D]/20 shadow-xl shadow-black/30'
-            : 'bg-transparent border-b border-transparent'
-        }`}
-      >
-        {/* Top Scroll Progress Bar */}
-        <motion.div
-          className="absolute top-0 left-0 right-0 h-[2.5px] bg-gradient-to-r from-[#F29559] via-[#F2D492] to-[#F29559] origin-left z-50 shadow-sm shadow-[#F29559]/30"
-          style={{ scaleX }}
-        />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            
-            {/* Logo / Terminal Brand */}
-            <a
-              href="#"
-              className="flex items-center gap-2.5 group font-mono text-sm font-semibold tracking-tight"
-              id="nav-brand-link"
-            >
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#F29559] to-[#F2D492] p-[1px] transition-transform group-hover:scale-105 shadow-md shadow-[#F29559]/20">
-                <div className="w-full h-full bg-[#202C39] rounded-[7px] flex items-center justify-center text-[#F29559] group-hover:text-[#F2D492] transition-colors">
-                  <Terminal className="w-4 h-4" />
-                </div>
-              </div>
-              <span className="font-semibold text-base tracking-tight text-slate-900 dark:text-[#F6F4EE]">
-                Abdelrahman<span className="text-[#F29559] font-mono">.dev</span>
-              </span>
-            </a>
-
-            {/* Desktop Nav Items with Warm Spring Indicator */}
-            <nav className="hidden md:flex items-center gap-1 bg-[#EDE8DC] dark:bg-[#283845]/90 p-1 rounded-full border border-slate-300/80 dark:border-[#B8B08D]/25 backdrop-blur-md">
-              {navItems.map((item) => {
-                const isActive = activeSection === item.href.substring(1);
-                return (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    className={`relative px-3.5 py-1.5 rounded-full text-xs font-mono font-medium transition-colors duration-200 ${
-                      isActive
-                        ? 'text-[#202C39] font-bold'
-                        : 'text-slate-600 dark:text-[#B8B08D] hover:text-[#202C39] dark:hover:text-[#F6F4EE]'
-                    }`}
-                  >
-                    {isActive && (
-                      <motion.div
-                        layoutId="activeSectionIndicator"
-                        className="absolute inset-0 bg-gradient-to-r from-[#F29559] to-[#F2D492] rounded-full shadow-sm shadow-[#F29559]/30"
-                        transition={{ type: 'spring', stiffness: 350, damping: 30 }}
-                      />
-                    )}
-                    <span className="relative z-10">{item.label}</span>
-                  </a>
-                );
-              })}
-            </nav>
-
-            {/* Actions: Command Palette, Resume & Theme Toggle */}
-            <div className="hidden md:flex items-center gap-2.5">
-              {/* Cmd+K trigger */}
-              <button
-                onClick={() => setCommandPaletteOpen(true)}
-                className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono bg-[#283845] text-[#F2D492] border border-[#B8B08D]/30 hover:border-[#F29559]/60 hover:text-[#F29559] transition-all duration-200 shadow-sm"
-                aria-label="Open command palette"
-                title="Press ⌘K or Ctrl+K"
-              >
-                <Command className="w-3.5 h-3.5 text-[#F29559]" />
-                <span className="text-[11px]">⌘K</span>
-              </button>
-
-              {/* Resume download */}
+      <header className="site-header">
+        <div className="nav-inner section-shell">
+          <a
+            href="#hero"
+            className="brand"
+            id="nav-brand-link"
+            aria-label="Abdelrahman Mohamed, home"
+          >
+            <span className="brand-mark">
+              am<span>.</span>
+            </span>
+            <span className="brand-name">
+              Abdelrahman
+              <br />
+              Mohamed
+            </span>
+          </a>
+          <nav className="desktop-nav" aria-label="Main navigation">
+            {links.map((link) => (
               <a
-                href={portfolioContent.personal.cvPath}
-                download="Abdelrahman_Mohamed_CV.pdf"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold font-mono bg-[#F29559]/15 text-[#F29559] border border-[#F29559]/40 hover:bg-[#F29559]/25 hover:border-[#F29559] transition-all duration-200 shadow-sm"
-                id="nav-cv-download"
+                key={link.href}
+                href={link.href}
+                aria-current={active === link.href ? "location" : undefined}
               >
-                <FileDown className="w-3.5 h-3.5" />
-                <span>Resume</span>
+                {link.label}
               </a>
-
-              <ThemeToggle />
-            </div>
-
-            {/* Mobile menu button */}
-            <div className="flex md:hidden items-center gap-2">
-              <button
-                onClick={() => setCommandPaletteOpen(true)}
-                className="p-2 rounded-lg bg-[#283845] text-[#F29559] border border-[#B8B08D]/30"
-                aria-label="Open command palette"
-              >
-                <Command className="w-4 h-4" />
-              </button>
-              <ThemeToggle />
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-lg bg-slate-200 dark:bg-[#283845] text-slate-800 dark:text-[#F6F4EE] hover:text-[#F29559] border border-transparent dark:border-[#B8B08D]/25 transition-colors"
-                aria-label="Toggle navigation menu"
-                id="mobile-menu-toggle"
-              >
-                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-              </button>
-            </div>
+            ))}
+          </nav>
+          <div className="nav-actions">
+            <button
+              type="button"
+              className="icon-button search-trigger"
+              aria-label="Search portfolio (Ctrl+K)"
+              onClick={() => setPaletteOpen(true)}
+            >
+              <Search size={17} />
+            </button>
+            <a href="#contact" className="nav-contact">
+              Let’s talk <ArrowUpRight size={16} />
+            </a>
+            <button
+              type="button"
+              id="mobile-menu-toggle"
+              className="icon-button mobile-toggle"
+              aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-navigation"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              {menuOpen ? <X size={21} /> : <Menu size={21} />}
+            </button>
           </div>
         </div>
-
-        {/* Mobile Drawer */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-white/95 dark:bg-[#202C39]/95 border-b border-[#B8B08D]/20 backdrop-blur-2xl px-4 pt-3 pb-6 space-y-2 animate-in slide-in-from-top duration-200">
-            {navItems.map((item) => {
-              const isActive = activeSection === item.href.substring(1);
-              return (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`block px-4 py-2.5 rounded-xl text-sm font-mono font-medium transition-colors ${
-                    isActive
-                      ? 'bg-[#F29559]/20 text-[#F29559] font-bold border border-[#F29559]/40'
-                      : 'text-slate-700 dark:text-[#B8B08D] hover:bg-slate-100 dark:hover:bg-[#283845]'
-                  }`}
-                >
-                  {item.label}
-                </a>
-              );
-            })}
-            <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex justify-center">
+        {menuOpen && (
+          <nav
+            id="mobile-navigation"
+            className="mobile-nav"
+            aria-label="Mobile navigation"
+          >
+            {links.map((link) => (
               <a
-                href={portfolioContent.personal.cvPath}
-                download="Abdelrahman_Mohamed_CV.pdf"
-                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs font-semibold font-mono bg-gradient-to-r from-[#F29559] to-[#F2D492] text-[#202C39] shadow-lg shadow-[#F29559]/20"
+                key={link.href}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
               >
-                <FileDown className="w-4 h-4" />
-                <span>Download Resume (PDF)</span>
+                {link.label}
+                <ArrowUpRight size={17} />
               </a>
-            </div>
-          </div>
+            ))}
+            <a href={portfolioContent.personal.cvPath} download>
+              Download Resume
+              <ArrowUpRight size={17} />
+            </a>
+          </nav>
         )}
       </header>
-
-      {/* Command Palette */}
-      <CommandPalette 
-        isOpen={commandPaletteOpen} 
-        onClose={() => setCommandPaletteOpen(false)} 
+      <CommandPalette
+        isOpen={paletteOpen}
+        onClose={() => setPaletteOpen(false)}
       />
     </>
   );
